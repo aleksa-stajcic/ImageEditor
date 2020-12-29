@@ -15,7 +15,7 @@ namespace ImageEditor {
 
         static void Main(string[] args) {
 
-            Bitmap rainbow = new Bitmap(@"C:\Users\Aleksa\Desktop\images\sample.bmp");
+            Bitmap rainbow = new Bitmap(@"C:\Users\Aleksa\Desktop\07-1.jpg");
             //Bitmap sample = new Bitmap(@"C:\Users\Aleksa\Desktop\outup.bmp");
 
             var height = rainbow.Height;
@@ -24,7 +24,7 @@ namespace ImageEditor {
 
 
 
-            var pixel = rainbow.GetPixel(width/2, height/2);
+            var pixel = rainbow.GetPixel(0, 0);
             var hue = Math.Ceiling(pixel.GetHue());
             var brightness = pixel.GetBrightness();
             Console.WriteLine("brightness: {0}", brightness);
@@ -46,16 +46,16 @@ namespace ImageEditor {
 
                     //if (colors.GetPixel(i, j).ToArgb() >= pixel.ToArgb() && sample.GetPixel(i, j).ToArgb() <= pixel.ToArgb()) {
                     if (x >= hue-1 && x <= hue+1 && tmp.GetBrightness() <= 1 && tmp.GetBrightness() >= 0) {
-                        rainbow.SetPixel(i, j, Color.Yellow);
+                        rainbow.SetPixel(i, j, Color.Red);
                         //Console.WriteLine("pixel at {0}, {1}: {2}", i, j, colors.GetPixel(i, j).ToArgb());
                     }
                 }
             }
-            rainbow.Save(@"C:\Users\Aleksa\Desktop\images\output10.bmp");
-            //for (int i = 1; i <= 5; i++) {
-            //    Console.WriteLine("Changed: {0}%", i * 20);
-            //    System.Threading.Thread.Sleep(1000);
-            //}
+            rainbow.Save(@"C:\Users\Aleksa\Desktop\images\output11.bmp");
+            for (int i = 1; i <= 5; i++) {
+                Console.WriteLine("Changed: {0}%", i * 20);
+                System.Threading.Thread.Sleep(1000);
+            }
 
             Console.WriteLine("Color changed.");
 
